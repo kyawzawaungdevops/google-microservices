@@ -99,5 +99,4 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build Docker image
-        run: |
-          ls -la src/paymentservice/Dockerfile
+        run: docker build -t paymentservice:latest -f src/paymentservice/Dockerfile src/paymentservice
