@@ -83,3 +83,21 @@ jobs:
          npm audit fix
       - name: npm lint
         run: npm run lint
+
+  dockernize:
+    needs:
+      - linting
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: |
+          docker buildx build --platform linux/amd64 -t payment-service:latest .
