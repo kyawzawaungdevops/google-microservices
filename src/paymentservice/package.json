@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo 'No tests configured yet' && exit 0",
-    "lint": "echo 'Linting not configured yet' && exit 0"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "Jonathan Lui",
   "license": "ISC",
@@ -24,5 +25,8 @@
     "pino": "10.1.0",
     "simple-card-validator": "^1.1.0",
     "uuid": "^11.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
   }
 }
