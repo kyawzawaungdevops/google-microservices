@@ -102,4 +102,6 @@ jobs:
         run: |
           pwd
           ls
+          cd src
+          ls
           docker buildx build --platform linux/amd64 -t payment-service:latest src/paymentservice/Dockerfile
