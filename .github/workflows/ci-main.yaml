@@ -100,8 +100,4 @@ jobs:
 
       - name: Build Docker image
         run: |
-          pwd
-          ls
-          cd src
-          ls
-          docker buildx build --platform linux/amd64 -t payment-service:latest /home/runner/work/google-microservices/google-microservices/src/paymentservice/Dockerfile
+          ls -la src/paymentservice/Dockerfile
