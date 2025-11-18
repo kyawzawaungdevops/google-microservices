@@ -100,4 +100,4 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker buildx build --platform linux/amd64 -t payment-service:latest .
+          docker buildx build --platform linux/amd64 -t payment-service:latest src/paymentservice/Dockerfile
