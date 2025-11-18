@@ -5,9 +5,11 @@
   "repository": "https://github.com/GoogleCloudPlatform/microservices-demo",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo 'No tests configured yet' && exit 0",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "build": "npm ci --production"
   },
   "author": "Jonathan Lui",
   "license": "ISC",
