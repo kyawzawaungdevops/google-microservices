@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  test:
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -33,7 +33,7 @@ jobs:
       - name: npm build
         run: npm run build
 
-  build:
+  test:
     runs-on: ubuntu-latest
     defaults:
       run:
