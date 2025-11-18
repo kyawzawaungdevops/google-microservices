@@ -37,6 +37,6 @@ COPY --from=builder /usr/src/app/node_modules ./node_modules
 
 COPY . .
 
-EXPOSE 50051
+EXPOSE 5005
 
 ENTRYPOINT [ "node", "index.js" ]
