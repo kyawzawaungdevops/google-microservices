@@ -4,21 +4,21 @@ on:
     branches:
       - main
     paths:
-      - src/paymentservice/**  # Added /** to include all files in directory
+      - src/paymentservice/**  
 
 jobs:
   test:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: src/paymentservice  # Set default working directory
+        working-directory: src/paymentservice 
     steps:
       - uses: actions/checkout@v4
       - name: Cache Node.js modules
         uses: actions/cache@v4
         with:
-          path: src/paymentservice/node_modules  # Corrected cache path
-          key: ${{ runner.os }}-npm-${{ hashFiles('src/paymentservice/package-lock.json') }}  # Specific path
+          path: src/paymentservice/node_modules  
+          key: ${{ runner.os }}-npm-${{ hashFiles('src/paymentservice/package-lock.json') }} 
           restore-keys: |
             ${{ runner.os }}-npm-
       - name: Use Node.js 20.x
@@ -36,14 +36,14 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: src/paymentservice  # Set default working directory
+        working-directory: src/paymentservice  
     steps:
       - uses: actions/checkout@v4
       - name: Cache Node.js modules
         uses: actions/cache@v4
         with:
-          path: src/paymentservice/node_modules  # Corrected cache path
-          key: ${{ runner.os }}-npm-${{ hashFiles('src/paymentservice/package-lock.json') }}  # Specific path
+          path: src/paymentservice/node_modules  
+          key: ${{ runner.os }}-npm-${{ hashFiles('src/paymentservice/package-lock.json') }} 
           restore-keys: |
             ${{ runner.os }}-npm-
       - name: Use Node.js 20.x
