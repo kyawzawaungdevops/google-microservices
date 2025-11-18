@@ -1,23 +1,24 @@
 name: "Continuous Integration - Main/Release"
 on:
   push:
-    # run on pushes to main or release/*
     branches:
       - main
     paths:
-      - src/paymentservice/**
-
+      - src/paymentservice/**  # Added /** to include all files in directory
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/paymentservice  # Set default working directory
     steps:
       - uses: actions/checkout@v4
       - name: Cache Node.js modules
         uses: actions/cache@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          path: src/paymentservice/node_modules  # Corrected cache path
+          key: ${{ runner.os }}-npm-${{ hashFiles('src/paymentservice/package-lock.json') }}  # Specific path
           restore-keys: |
             ${{ runner.os }}-npm-
       - name: Use Node.js 20.x
@@ -31,13 +32,16 @@ jobs:
 
   linting:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src/paymentservice  # Set default working directory
     steps:
       - uses: actions/checkout@v4
       - name: Cache Node.js modules
         uses: actions/cache@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          path: src/paymentservice/node_modules  # Corrected cache path
+          key: ${{ runner.os }}-npm-${{ hashFiles('src/paymentservice/package-lock.json') }}  # Specific path
           restore-keys: |
             ${{ runner.os }}-npm-
       - name: Use Node.js 20.x
@@ -48,6 +52,3 @@ jobs:
         run: npm ci
       - name: npm lint
         run: npm run lint
-
-
-    
