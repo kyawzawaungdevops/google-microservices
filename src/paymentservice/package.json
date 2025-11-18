@@ -5,7 +5,8 @@
   "repository": "https://github.com/GoogleCloudPlatform/microservices-demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'No tests configured yet' && exit 0"
+    "test": "echo 'No tests configured yet' && exit 0",
+    "lint": "echo 'Linting not configured yet' && exit 0"
   },
   "author": "Jonathan Lui",
   "license": "ISC",
